@@ -1,0 +1,109 @@
+/* ตั้งค่าให้คอนเทนเนอร์ของหน้า Login อยู่ตรงกลางทั้งแนวตั้งและแนวนอน */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000; /* สีพื้นหลังอ่อน */
+  padding: 20px;
+}
+
+/* ตั้งค่าสำหรับการ์ดของ Login */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อให้ดูมีมิติ */
+  border-radius: 8px; /* ทำให้ขอบมน */
+  background-color: #ffffff; /* สีพื้นหลังการ์ด */
+}
+
+/* ตั้งค่าให้ฟอร์มฟิลด์เต็มความกว้างและเว้นระยะห่างระหว่างฟิลด์ */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* ปุ่มสำหรับการส่งฟอร์ม */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+/* ตั้งค่าให้ลิงก์เพิ่มเติมอยู่ใต้ฟอร์ม */
+.additional-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+/* ลิงก์เพิ่มเติม */
+.additional-actions a {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #0288d1; /* สีของลิงก์ */
+  text-decoration: none;
+}
+
+.additional-actions a:hover {
+  text-decoration: underline; /* เน้นลิงก์เมื่อ Hover */
+}
+
+
+
+/* ปรับแต่งไอคอน visibility */
+mat-icon {
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ Hover บนไอคอน */
+  color: rgba(0, 0, 0, 0.54); /* สีไอคอน */
+}
+
+mat-icon:hover {
+  color: #0288d1; /* เปลี่ยนสีไอคอนเมื่อ Hover */
+}
+
+
+
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+mat-checkbox {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.additional-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+
+
+

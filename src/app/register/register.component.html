@@ -1,0 +1,79 @@
+<div class="register-container">
+    <mat-card>
+      <mat-card-title>Register</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <!-- First Name -->
+          <mat-form-field appearance="fill">
+            <mat-label>ชื่อ</mat-label>
+            <input matInput formControlName="firstName" required>
+            <mat-error *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched">
+              กรุณากรอกชื่อของคุณ
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Last Name -->
+          <mat-form-field appearance="fill">
+            <mat-label>นามสกุล</mat-label>
+            <input matInput formControlName="lastName" required>
+            <mat-error *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched">
+              กรุณากรอกนามสกุลของคุณ
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Phone Number -->
+          <mat-form-field appearance="fill">
+            <mat-label>หมายเลขโทรศัพท์</mat-label>
+            <input matInput formControlName="phoneNumber" type="tel" required>
+            <mat-error *ngIf="registerForm.get('phoneNumber')?.hasError('required') && registerForm.get('phoneNumber')?.touched">
+              กรุณากรอกหมายเลขโทรศัพท์ของคุณ
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('phoneNumber')?.hasError('pattern') && registerForm.get('phoneNumber')?.touched">
+              กรุณากรอกหมายเลขโทรศัพท์ที่ถูกต้อง
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Email -->
+          <mat-form-field appearance="fill">
+            <mat-label>อีเมล</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            <mat-error *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
+              กรุณากรอกอีเมลของคุณ
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+              กรุณากรอกอีเมลที่ถูกต้อง
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Password -->
+          <mat-form-field appearance="fill">
+            <mat-label>รหัสผ่าน</mat-label>
+            <input matInput formControlName="password" type="password" required>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+              กรุณากรอกรหัสผ่าน
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">
+              รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัวอักษร
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Confirm Password -->
+          <mat-form-field appearance="fill">
+            <mat-label>ยืนยันรหัสผ่าน</mat-label>
+            <input matInput formControlName="confirmPassword" type="password" required>
+            <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched">
+              กรุณายืนยันรหัสผ่าน
+            </mat-error>
+            <mat-error *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+              รหัสผ่านไม่ตรงกัน
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Register Button -->
+          <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">ลงทะเบียน</button>
+  
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

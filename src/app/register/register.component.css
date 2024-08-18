@@ -1,0 +1,66 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  mat-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .additional-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .additional-actions a {
+    margin-left: 5px;
+    text-transform: uppercase;
+  }
+  
+  /* CSS สำหรับการทำงานของ MatSnackBar */
+  .success-snackbar {
+    background-color: #4caf50; /* สีเขียว */
+    color: white;
+  }
+  
+  .error-snackbar {
+    background-color: #f44336; /* สีแดง */
+    color: white;
+  }
+  
+  .mat-snack-bar-container {
+    transition: transform 0.5s ease-in-out; /* การตั้งค่าการทำงานของ animation */
+  }
+  
+  .mat-snack-bar-container.mat-snack-bar-enter {
+    transform: translateY(-100%); /* เริ่มต้นจากด้านบน */
+  }
+  
+  .mat-snack-bar-container.mat-snack-bar-enter-active {
+    transform: translateY(0); /* ย้ายเข้ามาจากด้านบน */
+  }
+  
+  .mat-snack-bar-container.mat-snack-bar-leave {
+    transform: translateY(0); /* เริ่มต้นที่ตำแหน่งปกติ */
+  }
+  
+  .mat-snack-bar-container.mat-snack-bar-leave-active {
+    transform: translateY(-100%); /* ย้ายออกไปจากด้านบน */
+  }
+  

@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const db = require('../config/db');
+const db = require('../config/db'); // เชื่อมต่อกับฐานข้อมูล
 
-// เข้าสู่ระบบ
+// ฟังก์ชันสำหรับเข้าสู่ระบบ
 exports.login = (req, res) => {
     const { email, password } = req.body;
 
@@ -36,18 +36,16 @@ exports.login = (req, res) => {
 
             // สร้าง JWT token
             const token = jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '1h' });
-            res.json({ token });
+
+            // ส่งข้อมูล user_id และ token กลับไปยัง client
+            res.json({
+                token,
+                user: {
+                    user_id: user.user_id,
+                    firstName: user.first_name,
+                    lastName: user.last_name
+                }
+            });
         });
     });
 };
-
-// ตั้งค่า listener สำหรับเหตุการณ์ error
-process.on('uncaughtException', (err) => {
-    console.error('Uncaught Exception:', err);
-    // อาจทำการบันทึกข้อผิดพลาดหรือปิดการทำงานของแอปพลิเคชัน
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-    // อาจทำการบันทึกข้อผิดพลาดหรือปิดการทำงานของแอปพลิเคชัน
-});
