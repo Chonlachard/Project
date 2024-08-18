@@ -1,0 +1,158 @@
+/* สไตล์สำหรับแถบนำทาง (Navbar) */
+.navbar {
+    background-color: #f0f0f0; /* สีพื้นหลังของแถบนำทาง */
+    color: black; /* สีตัวอักษร */
+    padding: 10px 20px; /* ขนาดการเว้นระยะขอบด้านบนและล่าง 10px และด้านซ้ายและขวา 20px */
+    display: flex; /* ใช้ Flexbox สำหรับการจัดเรียง */
+    justify-content: space-between; /* จัดระเบียบรายการให้กระจายอย่างทั่วถึง */
+    align-items: center; /* จัดตำแหน่งรายการให้อยู่กึ่งกลางในแนวตั้ง */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาแสงของแถบนำทาง */
+}
+
+/* สไตล์สำหรับชื่อแบรนด์ในแถบนำทาง */
+.navbar-brand {
+    font-size: 24px; /* ขนาดฟอนต์ */
+    font-weight: bold; /* น้ำหนักตัวอักษรให้หนา */
+}
+
+/* สไตล์สำหรับรายการนำทาง */
+.navbar-nav {
+    list-style: none; /* ไม่ใช้สัญลักษณ์ในการจัดรายการ */
+    display: flex; /* ใช้ Flexbox */
+    gap: 20px; /* ช่องว่างระหว่างรายการ */
+    margin: 0; /* ไม่มีการเว้นขอบด้านนอก */
+    padding: 0; /* ไม่มีการเว้นขอบด้านใน */
+}
+
+/* สไตล์สำหรับลิงก์ในรายการนำทาง */
+.nav-item a {
+    text-decoration: none; /* ไม่มีการขีดเส้นใต้ */
+    color: black; /* สีตัวอักษร */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    font-weight: 500; /* น้ำหนักตัวอักษร */
+}
+
+/* สไตล์สำหรับลิงก์ในแถบนำทางเมื่อชี้หรือเป็นลิงก์ที่ถูกเลือก */
+.navbar a:hover,
+.navbar a.active {
+    color: #e2e8f0; /* สีตัวอักษรเมื่อชี้หรือเป็นลิงก์ที่เลือก */
+    background-color: #2d3748; /* สีพื้นหลังเมื่อชี้หรือเป็นลิงก์ที่เลือก */
+    border-radius: 4px; /* มุมโค้งของพื้นหลัง */
+    padding: 0.5rem 1rem; /* ขนาดการเว้นระยะขอบภายใน */
+}
+
+/* สไตล์สำหรับส่วนด้านขวาของแถบนำทาง */
+.navbar .navbar-right {
+    display: flex; /* ใช้ Flexbox */
+    align-items: center; /* จัดตำแหน่งรายการให้อยู่กึ่งกลางในแนวตั้ง */
+    gap: 15px; /* ช่องว่างระหว่างรายการ */
+}
+
+/* สไตล์สำหรับเมนูดรอปดาวน์ (Profile และ Logout) */
+.navbar .user-menu {
+    position: relative; /* ใช้ตำแหน่งแบบสัมพัทธ์ */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ */
+}
+
+/* สไตล์สำหรับเมนูดรอปดาวน์ */
+.navbar .dropdown-menu {
+    display: none; /* ซ่อนเมนูดรอปดาวน์โดยเริ่มต้น */
+    position: absolute; /* ใช้ตำแหน่งแบบสัมพัทธ์ */
+    top: 100%; /* ตำแหน่งด้านล่างขององค์ประกอบที่เป็นพ่อแม่ */
+    right: 0; /* ตำแหน่งขวาสุด */
+    background-color: white; /* สีพื้นหลังของเมนูดรอปดาวน์ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาของเมนูดรอปดาวน์ */
+    padding: 15px 30px; /* ขนาดการเว้นระยะขอบภายใน */
+    text-align: right; /* จัดตำแหน่งข้อความทางด้านขวา */
+    font-size: 16px; /* ขนาดฟอนต์ */
+}
+
+/* สไตล์สำหรับลิงก์ในเมนูดรอปดาวน์ */
+.navbar .dropdown-menu a {
+    display: block; /* แสดงลิงก์เป็นบล็อก */
+    padding: 10px 0; /* ขนาดการเว้นระยะขอบภายใน */
+    text-decoration: none; /* ไม่มีการขีดเส้นใต้ */
+    color: black; /* สีตัวอักษร */
+}
+
+/* สไตล์สำหรับลิงก์ในเมนูดรอปดาวน์เมื่อชี้ */
+.navbar .dropdown-menu a:hover {
+    background-color: #f0f0f0; /* สีพื้นหลังเมื่อชี้ */
+    padding: 5px 20px;
+}
+
+/* แสดงเมนูดรอปดาวน์เมื่อมันถูกเปิดใช้งาน */
+.navbar .dropdown-menu.active {
+    display: block; /* แสดงเมนูดรอปดาวน์ */
+}
+
+/* สไตล์สำหรับหน้าจอที่กว้างไม่เกิน 768px */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+        align-items: flex-start; /* จัดตำแหน่งด้านซ้าย */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+        width: 100%; /* ความกว้าง 100% */
+    }
+
+    .navbar-nav li {
+        width: 100%; /* ความกว้าง 100% */
+        text-align: left; /* จัดตำแหน่งข้อความด้านซ้าย */
+    }
+
+    .nav-item a {
+        padding: 10px 0; /* ขนาดการเว้นระยะขอบภายใน */
+        width: 100%; /* ความกว้าง 100% */
+    }
+
+    .navbar-right {
+        width: 100%; /* ความกว้าง 100% */
+        justify-content: space-between; /* จัดระเบียบให้กระจายอย่างทั่วถึง */
+        margin-top: 10px; /* ระยะห่างด้านบน */
+    }
+}
+
+/* สไตล์สำหรับหน้าจอที่กว้างไม่เกิน 480px */
+@media screen and (max-width: 480px) {
+    .navbar-brand {
+        font-size: 20px; /* ขนาดฟอนต์ */
+    }
+
+    .nav-item a {
+        font-size: 14px; /* ขนาดฟอนต์ */
+    }
+
+    .navbar-right {
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+        align-items: flex-start; /* จัดตำแหน่งด้านซ้าย */
+        gap: 10px; /* ช่องว่างระหว่างรายการ */
+    }
+
+    .container {
+        padding: 1rem; /* ขนาดการเว้นระยะขอบภายใน */
+    }
+}
+
+/* Mobile First Approach: สไตล์สำหรับหน้าจอที่กว้างไม่เกิน 320px */
+@media screen and (max-width: 320px) {
+    .navbar-brand {
+        font-size: 18px; /* ขนาดฟอนต์ */
+    }
+
+    .nav-item a {
+        font-size: 12px; /* ขนาดฟอนต์ */
+    }
+
+    .navbar-right {
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+        align-items: flex-start; /* จัดตำแหน่งด้านซ้าย */
+        gap: 5px; /* ช่องว่างระหว่างรายการ */
+    }
+
+    .container {
+        padding: 0.5rem; /* ขนาดการเว้นระยะขอบภายใน */
+    }
+}
