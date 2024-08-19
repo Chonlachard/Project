@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h2>Profile</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">ชื่อ</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName">
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">นามสกุล</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName">
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">เบอร์โทร</label>
+      <input type="text" class="form-control" id="phone" formControlName="phone">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">อีเมล</label>
+      <input type="email" class="form-control" id="email" formControlName="email" readonly>
+    </div>
+    <button type="submit" class="btn btn-primary">อัปเดตโปรไฟล์</button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+      เปลี่ยนรหัสผ่าน
+    </button>
+  </form>
+</div>
