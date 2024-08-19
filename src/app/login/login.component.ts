@@ -19,7 +19,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: LoginService,
     private router: Router,
-    private dialog: MatDialog 
+    private dialog: MatDialog
   ) {
     // สร้างฟอร์มเข้าสู่ระบบ
     this.loginForm = this.fb.group({
@@ -40,17 +40,21 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe(
       response => {
-        const userId = response.user.user_id;
-        console.log('User ID from login:', userId);
+        if (response && response.user && response.token) {
+          const userId = response.user.user_id;
+          console.log('User ID from login:', userId);
 
-        localStorage.setItem('userId', userId.toString());
-        localStorage.setItem('token', response.token);
+          localStorage.setItem('userId', userId.toString());
+          localStorage.setItem('token', response.token);
 
-        // หรือใช้บริการเพื่อเก็บ userId
-        this.authService.setUserId(userId);
+          // หรือใช้บริการเพื่อเก็บ userId
+          this.authService.setUserId(userId);
 
-        // นำทางไปยังหน้าหลักหลังจากเข้าสู่ระบบสำเร็จ
-        this.router.navigate(['/dashboard']);
+          // นำทางไปยังหน้าหลักหลังจากเข้าสู่ระบบสำเร็จ
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage = 'ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง';
+        }
       },
       error => {
         // แสดงข้อความข้อผิดพลาดหากเข้าสู่ระบบไม่สำเร็จ

@@ -15,9 +15,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -28,11 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     DashbordComponent,
+    ProfileComponent,
    
 
   ],
   imports: [
     BrowserModule,
+    FormsModule ,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
